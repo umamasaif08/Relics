@@ -62,6 +62,58 @@ function deriveCategory(raw) {
 export function mapMetObjectToArtifact(raw) {
   if (!raw?.isPublicDomain || !raw?.primaryImage) return null;
 
+  // 1. Department Allowlist Filter
+  const dept = (raw.department || '').trim().toLowerCase();
+  const allowedDepts = [
+    'islamic art',
+    'asian art',
+    'the costume institute',
+    'costume institute',
+    'musical instruments',
+    'american decorative arts',
+    'the american wing',
+    'ancient near eastern art',
+    'ancient west asian art',
+  ];
+  if (!allowedDepts.includes(dept)) return null;
+
+  // 2. Sub-filter: "Asian Art" must be ceramics/textiles only, and exclude paintings/prints/drawings/scrolls
+  if (dept === 'asian art') {
+    const classification = (raw.classification || '').toLowerCase();
+    const medium = (raw.medium || '').toLowerCase();
+    const objectName = (raw.objectName || '').toLowerCase();
+    const contentText = `${classification} ${medium} ${objectName}`;
+
+    const isCeramic = /ceramic|porcelain|pottery|clay|stoneware|earthenware|terracotta/i.test(contentText);
+    const isTextile = /textile|silk|wool|cotton|tapestry|fabric|embroidery|robe|kimono|carpet|rug|satin|brocade|velvet|weaving/i.test(contentText);
+    const isPainting = /painting|paint|print|drawing|scroll/i.test(contentText);
+
+    if (!(isCeramic || isTextile) || isPainting) return null;
+  }
+
+  // 3. Safety Net: Exclude if classification contains "Nude" or "Erotic" (only if classification exists)
+  if (raw.classification) {
+    const classification = raw.classification.trim().toLowerCase();
+    if (classification.includes('nude') || classification.includes('erotic')) return null;
+  }
+
+  // 4. Keywords Safety Net: Exclude if title or tags contain unwanted keywords
+  const keywords = ['nude', 'erotic', 'torture', 'human remains', 'weapon'];
+  if (raw.title) {
+    const title = raw.title.trim().toLowerCase();
+    if (keywords.some((kw) => title.includes(kw))) return null;
+  }
+
+  if (Array.isArray(raw.tags)) {
+    const hasUnwantedTag = raw.tags.some((t) => {
+      if (!t?.term) return false;
+      const term = t.term.trim().toLowerCase();
+      return keywords.some((kw) => term.includes(kw));
+    });
+    if (hasUnwantedTag) return null;
+  }
+
+
   const culture = raw.culture || '';
   const period = raw.period || '';
   const objectDate = raw.objectDate || '';

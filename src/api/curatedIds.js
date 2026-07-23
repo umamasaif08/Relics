@@ -1,15 +1,19 @@
 /**
- * Curated Met Museum object IDs spanning multiple civilizations and eras.
- * Verified for public domain status and primary images via the Met Open Access API.
+ * Curated Met Museum object IDs spanning allowed departments:
+ * "Islamic Art", "Asian Art", "The Costume Institute", "Musical Instruments", "American Decorative Arts", "Ancient Near Eastern Art".
+ * Verified for public domain status and primary images.
  */
 export const CURATED_OBJECT_IDS = [
-  // Egyptian
-  544484, 548003, 547801, 544192, 544635, 544474, 544417, 544053, 548180, 549068,
-  // Greek & Roman
-  248896, 248897, 245917, 247010, 250464,
-  // Asian
-  39799, 503051, 503170, 73412, 451725, 449123,
-  // European
-  436102, 437853, 436524, 437985, 438821, 435882, 436105, 436838, 437422, 437261,
-  436944, 437654, 470304, 467642, 460548,
+  // American Decorative Arts
+  508, 509, 510, 511, 512, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 534,
+  // Ancient Near Eastern Art
+  321619, 321620, 321621, 321622, 321623, 321624, 321625, 321626, 321627, 321628, 321630, 321631, 321633, 321634, 321636, 321638, 321639, 321641, 321642, 321643,
+  // Asian Art
+  36436, 36437, 36439, 36441, 36442, 36443, 36444, 36445, 36446, 36447, 36448, 36449, 36451, 36452, 36453, 36454, 36455, 36456, 36457, 36458,
+  // The Costume Institute
+  78923, 78924, 78926, 78927, 78928, 78929, 78930, 78931, 78932, 78933, 78934, 78937, 78938, 78940, 78997, 78998, 79047, 79048, 79057, 79073,
+  // Islamic Art
+  86544, 86546, 86547, 86556, 86559, 86560, 86566, 86567, 86570, 86571, 124912, 126486, 126645, 126647, 126652, 126656, 126657, 126796, 126798, 126802,
+  // Musical Instruments
+  500527, 500533, 500534, 500535, 500536, 500539, 500544, 500547, 500549, 500550, 500551, 500553, 500554, 500557, 500558, 500559, 500560, 500561, 500562, 500563
 ];
