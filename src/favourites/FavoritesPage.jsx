@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useArtifactsContext } from '../context/ArtifactsContext';
-import { useFavorites } from '../context/FavoritesContext';
+import { useFavorites } from './FavoritesContext';
 import ArtifactGrid from '../components/ArtifactGrid';
 import ErrorState from '../components/ErrorState';
 import LoadingSkeleton from '../components/LoadingSkeleton';

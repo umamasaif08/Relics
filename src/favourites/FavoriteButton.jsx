@@ -1,4 +1,4 @@
-import { useFavorites } from '../context/FavoritesContext';
+import { useFavorites } from './FavoritesContext';
 
 export default function FavoriteButton({ artifactId, className = '' }) {
   const { isFavorite, toggleFavorite } = useFavorites();

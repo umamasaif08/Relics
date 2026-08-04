@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import SpotlightCard from './react-bits/SpotlightCard';
 import TiltedCard from './react-bits/TiltedCard';
-import FavoriteButton from './FavoriteButton';
+import FavoriteButton from '../favourites/FavoriteButton';
 
 export default function ArtifactCard({ artifact }) {
   return (

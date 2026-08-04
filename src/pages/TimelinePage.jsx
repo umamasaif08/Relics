@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useArtifactsContext } from '../context/ArtifactsContext';
 import ErrorState from '../components/ErrorState';
 import LoadingSkeleton from '../components/LoadingSkeleton';
-import FavoriteButton from '../components/FavoriteButton';
+import FavoriteButton from '../favourites/FavoriteButton';
 import FadeIn from '../components/react-bits/FadeIn';
 
 const ERA_ORDER = [

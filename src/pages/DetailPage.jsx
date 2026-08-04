@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useArtifactsContext } from '../context/ArtifactsContext';
 import ErrorState from '../components/ErrorState';
-import FavoriteButton from '../components/FavoriteButton';
+import FavoriteButton from '../favourites/FavoriteButton';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import FadeIn from '../components/react-bits/FadeIn';
 
